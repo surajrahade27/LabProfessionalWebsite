@@ -24,7 +24,7 @@ LabProfessionalWebsite/
 │   ├── _redirects                 # SPA fallback
 │   ├── robots.txt
 │   ├── sitemap.xml
-│   ├── favicon.svg
+│   ├── favicon.png
 │   └── images/                    # optimised WebP images
 ├── src/
 │   ├── main.jsx                   # entry: mounts <App/>

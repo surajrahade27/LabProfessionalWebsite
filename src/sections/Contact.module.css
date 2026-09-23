@@ -1,0 +1,163 @@
+.contact {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.glow {
+  position: absolute;
+  bottom: -300px;
+  left: 50%;
+  z-index: -1;
+  width: 900px;
+  height: 600px;
+  margin-left: -450px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgb(79 70 229 / 30%), transparent 65%);
+}
+
+.head {
+  max-width: 760px;
+  margin-bottom: var(--space-12);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+/* Long email address must not overflow narrow screens */
+.actions a {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+.cards {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  padding: var(--space-6);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-lg);
+  background: rgb(255 255 255 / 3%);
+  backdrop-filter: blur(8px);
+  font-size: 0.95rem;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    border-color: rgb(129 140 248 / 40%);
+  }
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--space-4);
+  border-radius: 12px;
+  background: rgb(34 211 238 / 12%);
+  color: var(--color-cyan);
+}
+
+.card h3 {
+  margin-bottom: var(--space-2);
+  font-size: 1.05rem;
+}
+
+.card address {
+  display: grid;
+  font-style: normal;
+  color: var(--dark-muted);
+}
+
+.card ul {
+  display: grid;
+  gap: var(--space-2);
+  color: var(--dark-text);
+}
+
+.card li {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark-muted);
+}
+
+.card a {
+  color: var(--dark-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+@media (hover: hover) {
+  .card a:hover {
+    color: var(--color-cyan);
+  }
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  font-weight: 600;
+  color: var(--color-cyan) !important;
+}
+
+.note {
+  margin-top: var(--space-3);
+  font-size: 0.85rem;
+  color: var(--dark-muted);
+}
+
+.online li a {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.map {
+  overflow: hidden;
+  min-height: 360px;
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-lg);
+  background: var(--dark-surface);
+}
+
+/* Tint the light Google map so it sits in the dark section */
+.map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  border: 0;
+  filter: invert(0.9) hue-rotate(180deg) saturate(0.7) contrast(0.9);
+}
