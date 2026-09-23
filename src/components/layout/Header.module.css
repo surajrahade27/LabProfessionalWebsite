@@ -1,10 +1,45 @@
+/* Fixed so the dark hero runs underneath it */
 .header {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  inset: 0 0 auto;
   z-index: 50;
-  background: rgb(255 255 255 / 92%);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-border);
+  color: #fff;
+  border-bottom: 1px solid transparent;
+  transition: background 0.35s, color 0.35s, border-color 0.35s, box-shadow 0.35s;
+}
+
+.solid {
+  background: rgb(255 255 255 / 85%);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  color: var(--color-ink);
+  border-bottom-color: var(--color-border);
+  box-shadow: 0 8px 30px -16px rgb(15 23 42 / 25%);
+}
+
+/* Reading progress bar, driven by the page scroll where supported */
+.progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-brand);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+@supports (animation-timeline: scroll()) {
+  .progress {
+    animation: progress linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes progress {
+  to {
+    transform: scaleX(1);
+  }
 }
 
 .inner {
@@ -18,21 +53,41 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--color-primary-dark);
+  gap: var(--space-3);
   text-decoration: none;
 }
 
 .logoMark {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: var(--color-primary);
-  color: #fff;
+  flex-shrink: 0;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 12%), var(--shadow-glow);
+  transition: transform 0.6s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .logo:hover .logoMark {
+    transform: scale(1.06);
+  }
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.logoText strong {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+.logoText small {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
 }
 
 .menuButton {
@@ -43,57 +98,67 @@
   border: 0;
   border-radius: var(--radius);
   background: transparent;
-  color: var(--color-text);
+  color: inherit;
   cursor: pointer;
+  transition: background 0.2s;
+}
+
+@media (hover: hover) {
+  .menuButton:hover {
+    background: rgb(127 127 127 / 14%);
+  }
 }
 
 /* Mobile: nav is a drop-down panel under the header */
 .nav {
-  display: none;
   position: absolute;
   top: var(--header-height);
   left: 0;
   right: 0;
-  padding: var(--space-4);
+  padding: var(--space-4) var(--space-4) var(--space-6);
   background: var(--color-bg);
+  color: var(--color-ink);
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.25s,
+    transform 0.35s var(--ease-out),
+    visibility 0s 0.35s;
 }
 
 .navOpen {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity 0.25s,
+    transform 0.35s var(--ease-out);
 }
 
 .links a {
+  position: relative;
   display: block;
   padding: var(--space-3) 0;
   font-weight: 500;
   text-decoration: none;
+  transition: color 0.2s, opacity 0.2s;
 }
 
-.links a:hover {
+.links a:hover,
+.links a.active {
   color: var(--color-primary);
 }
 
-.actions {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+.cta {
+  width: 100%;
   margin-top: var(--space-4);
 }
 
-.phone {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  min-height: 44px;
-  font-weight: 600;
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
 /* Desktop: inline nav, no menu button */
-@media (min-width: 960px) {
+@media (min-width: 1024px) {
   .menuButton {
     display: none;
   }
@@ -103,23 +168,65 @@
     position: static;
     flex: 1;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: var(--space-6);
     padding: 0;
-    margin-left: var(--space-12);
     border: 0;
     box-shadow: none;
     background: transparent;
+    color: inherit;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
   }
 
   .links {
     display: flex;
-    gap: var(--space-8);
+    gap: var(--space-1);
   }
 
-  .actions {
-    flex-direction: row;
-    align-items: center;
-    gap: var(--space-6);
+  .links a {
+    padding: var(--space-2) var(--space-4);
+    border-radius: 999px;
+    font-size: 0.95rem;
+    opacity: 0.85;
+  }
+
+  .links a:hover,
+  .links a.active {
+    color: inherit;
+    opacity: 1;
+    background: rgb(127 127 140 / 12%);
+  }
+
+  .solid .links a:hover,
+  .solid .links a.active {
+    color: var(--color-primary);
+  }
+
+  /* Dot under the active section link */
+  .links a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    width: 5px;
+    height: 5px;
+    margin-left: -2.5px;
+    border-radius: 50%;
+    background: var(--gradient-brand);
+    transform: scale(0);
+    transition: transform 0.35s var(--ease-out);
+  }
+
+  .links a.active::after {
+    transform: scale(1);
+  }
+
+  .cta {
+    width: auto;
     margin-top: 0;
+    min-height: 42px;
+    padding-block: var(--space-2);
   }
 }

@@ -1,4 +1,3 @@
-import WhatsAppButton from './components/common/WhatsAppButton'
 import Footer from './components/layout/Footer'
 import Header from './components/layout/Header'
 import HomePage from './pages/HomePage'
@@ -14,7 +13,6 @@ function App() {
         <HomePage />
       </main>
       <Footer />
-      <WhatsAppButton />
     </>
   )
 }

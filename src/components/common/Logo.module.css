@@ -1,0 +1,9 @@
+/* White tile keeps the crest's white ground consistent on light and dark surfaces */
+.logo {
+  display: block;
+  flex-shrink: 0;
+  padding: 2px;
+  border-radius: 12px;
+  background: #fff;
+  object-fit: contain;
+}

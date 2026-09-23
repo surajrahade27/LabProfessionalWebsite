@@ -1,22 +1,40 @@
-/* Design tokens. Final colours come from the client (questionnaire §3). */
+/* Design tokens. Deep-space navy with a cyan → violet "nano" gradient.
+   Swap the palette here once the client sends a logo. */
 :root {
-  --color-primary: #0b6e99;
-  --color-primary-dark: #08506f;
-  --color-primary-soft: #e6f2f7;
-  --color-accent: #15803d; /* CTA green, 5:1 contrast with white text */
-  --color-accent-dark: #116932;
-  --color-text: #1f2937;
-  --color-muted: #5b6573;
+  --color-primary: #4338ca; /* indigo-700, 7:1 on white */
+  --color-primary-dark: #312e81;
+  --color-primary-soft: #eef0ff;
+  --color-cyan: #22d3ee;
+  --color-violet: #a78bfa;
+  --color-magenta: #f472b6;
+  --color-text: #1e293b;
+  --color-muted: #55627a;
   --color-bg: #ffffff;
-  --color-surface: #f3f6f9;
-  --color-border: #e2e8f0;
+  --color-surface: #f5f7fc;
+  --color-border: #e3e8f2;
+  --color-ink: #0b1026;
+
+  /* Dark sections */
+  --dark-bg: #070b1d;
+  --dark-surface: #0e1430;
+  --dark-border: rgb(148 163 255 / 14%);
+  --dark-text: #e7ebff;
+  --dark-muted: #a3acd0;
+
+  --gradient-brand: linear-gradient(120deg, #22d3ee 0%, #818cf8 50%, #c084fc 100%);
+  --gradient-ink: linear-gradient(120deg, #0891b2 0%, #4f46e5 55%, #9333ea 100%);
 
   --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Sora', var(--font-body);
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
   --radius: 12px;
-  --radius-lg: 20px;
-  --shadow: 0 1px 2px rgb(15 23 42 / 6%), 0 4px 16px rgb(15 23 42 / 6%);
-  --shadow-lg: 0 12px 40px rgb(15 23 42 / 12%);
+  --radius-lg: 22px;
+  --shadow: 0 1px 2px rgb(15 23 42 / 5%), 0 6px 20px rgb(15 23 42 / 6%);
+  --shadow-lg: 0 20px 50px -12px rgb(15 23 42 / 18%);
+  --shadow-glow: 0 10px 30px -8px rgb(99 102 241 / 55%);
 
   --space-1: 4px;
   --space-2: 8px;
@@ -28,5 +46,5 @@
   --space-16: 64px;
 
   --container: 1200px;
-  --header-height: 68px;
+  --header-height: 72px;
 }

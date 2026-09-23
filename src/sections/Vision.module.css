@@ -1,0 +1,161 @@
+.vision {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Slow-moving glow behind the quote */
+.orb {
+  position: absolute;
+  top: -200px;
+  right: -160px;
+  z-index: -1;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(99 102 241 / 35%), transparent 65%);
+  filter: blur(20px);
+  animation: drift 20s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  to {
+    transform: translate(-120px, 160px) scale(1.15);
+  }
+}
+
+.quote {
+  max-width: 24ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .quote {
+    max-width: 36ch;
+  }
+}
+
+.quote p {
+  background: linear-gradient(100deg, #fff 40%, #a5b4fc 70%, #67e8f9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.columns {
+  display: grid;
+  gap: var(--space-12);
+  margin-top: var(--space-16);
+}
+
+@media (min-width: 1024px) {
+  .columns {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+  }
+}
+
+.subhead {
+  margin-bottom: var(--space-6);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dark-muted) !important;
+}
+
+/* ── Mission cards with a cursor spotlight ─────────── */
+.mission {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-6);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-lg);
+  background: var(--dark-surface);
+  transition: border-color 0.3s, transform 0.4s var(--ease-out);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgb(129 140 248 / 16%), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    border-color: rgb(129 140 248 / 40%);
+    transform: translateY(-3px);
+  }
+}
+
+@media (hover: hover) {
+  .card:hover::before {
+    opacity: 1;
+  }
+}
+
+.index {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-6);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: rgb(165 180 252 / 60%);
+}
+
+.card h4 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.card p {
+  margin-top: var(--space-2);
+  color: var(--dark-muted);
+}
+
+/* ── Objectives list ───────────────────────────────── */
+.objectives {
+  display: grid;
+}
+
+.objectives li {
+  display: flex;
+  gap: var(--space-6);
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.objectives li:first-child {
+  padding-top: 0;
+}
+
+.bullet {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.objectives p {
+  color: var(--dark-text);
+}

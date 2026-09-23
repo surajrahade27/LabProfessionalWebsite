@@ -1,0 +1,126 @@
+.head {
+  margin-bottom: var(--space-12);
+}
+
+/* Mobile: vertical timeline. Desktop: horizontal row. */
+.pipeline {
+  position: relative;
+  display: grid;
+  gap: var(--space-8);
+  padding-left: 64px;
+}
+
+/* Track and animated fill */
+.pipeline::before,
+.pipeline::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 21px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--color-border);
+}
+
+.pipeline::after {
+  background: var(--gradient-ink);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 2s var(--ease-out);
+}
+
+.run::after {
+  transform: none;
+}
+
+.pipeline li {
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out);
+  transition-delay: calc(var(--i) * 250ms + 150ms);
+}
+
+.run li {
+  opacity: 1;
+  transform: none;
+}
+
+.node {
+  position: absolute;
+  top: 0;
+  left: -64px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  background: #fff;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-primary);
+  transition: background 0.4s, color 0.4s, border-color 0.4s, box-shadow 0.4s;
+  transition-delay: calc(var(--i) * 250ms + 300ms);
+}
+
+.run .node {
+  border-color: transparent;
+  background: var(--gradient-ink);
+  color: #fff;
+  box-shadow: var(--shadow-glow);
+}
+
+.pipeline h3 {
+  font-size: 1.25rem;
+}
+
+.pipeline p {
+  margin-top: var(--space-2);
+  color: var(--color-muted);
+}
+
+@media (min-width: 1024px) {
+  .pipeline {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-6);
+    padding-left: 0;
+    padding-top: 72px;
+  }
+
+  .pipeline::before,
+  .pipeline::after {
+    top: 21px;
+    bottom: auto;
+    left: 22px;
+    /* End at the last node: one column width, minus half a node */
+    right: calc((100% - 4 * var(--space-6)) / 5 - 22px);
+    width: auto;
+    height: 2px;
+  }
+
+  .pipeline::after {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .run::after {
+    transform: none;
+  }
+
+  .node {
+    top: -72px;
+    left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pipeline li {
+    opacity: 1;
+    transform: none;
+  }
+}

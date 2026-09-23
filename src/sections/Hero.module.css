@@ -1,0 +1,367 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: calc(var(--header-height) + var(--space-12)) var(--space-16);
+  background:
+    radial-gradient(ellipse 80% 60% at 75% 30%, rgb(79 70 229 / 28%), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 10% 90%, rgb(8 145 178 / 22%), transparent 70%),
+    var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Faint grid that fades out towards the edges */
+.glow {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgb(148 163 255 / 6%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(148 163 255 / 6%) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 60% 40%, #000 10%, transparent 70%);
+}
+
+.grid {
+  display: grid;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+/* Staggered entrance for the hero copy */
+.copy > * {
+  animation: rise 1s var(--ease-out) both;
+}
+
+.copy > :nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.copy > :nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.copy > :nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 6px 16px 6px 12px;
+  border: 1px solid var(--dark-border);
+  border-radius: 18px; /* not a full pill: it can wrap to two lines on phones */
+  background: rgb(255 255 255 / 4%);
+  backdrop-filter: blur(6px);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark-muted);
+}
+
+.pulse {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+}
+
+.pulse::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  animation: ping 2s var(--ease-out) infinite;
+}
+
+@keyframes ping {
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.title {
+  margin-top: var(--space-6);
+  font-size: clamp(2.2rem, 5vw, 3.7rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: #fff;
+}
+
+.intro {
+  margin-top: var(--space-6);
+  max-width: 58ch;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: var(--dark-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+/* ── Nanocarrier visual ─────────────────────────────── */
+.visual {
+  --px: 0;
+  --py: 0;
+  position: relative;
+  width: min(100%, 460px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  perspective: 900px;
+  animation: rise 1.2s 0.2s var(--ease-out) both;
+}
+
+.tilt {
+  position: absolute;
+  inset: 0;
+  transform: rotateX(calc(var(--py) * -14deg)) rotateY(calc(var(--px) * 14deg));
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.carrier {
+  position: absolute;
+  inset: 8%;
+  width: 84%;
+  height: 84%;
+  filter: drop-shadow(0 0 40px rgb(129 140 248 / 45%));
+  animation: float 7s ease-in-out infinite;
+}
+
+.carrier :global(.nc-spin) {
+  transform-origin: 160px 160px;
+  animation: spin 60s linear infinite;
+}
+
+.carrier :global(.nc-payload) {
+  transform-origin: 160px 160px;
+  animation: spin 24s linear infinite reverse;
+}
+
+.carrier :global(.nc-ligand) {
+  animation: blink 3s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes blink {
+  50% {
+    fill: #c084fc;
+  }
+}
+
+.ring {
+  position: absolute;
+  inset: 2%;
+  border: 1px dashed rgb(148 163 255 / 25%);
+  border-radius: 50%;
+  animation: spin 80s linear infinite;
+}
+
+.ringOuter {
+  inset: -6%;
+  border-style: solid;
+  border-color: rgb(34 211 238 / 12%);
+  animation-direction: reverse;
+}
+
+/* Glass labels placed round the particle */
+.chip {
+  position: absolute;
+  padding: 6px 14px;
+  border: 1px solid var(--dark-border);
+  border-radius: 999px;
+  background: rgb(14 20 48 / 70%);
+  backdrop-filter: blur(10px);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #fff;
+  box-shadow: 0 10px 30px -10px rgb(0 0 0 / 60%);
+  transform: translateZ(40px);
+  animation: bob 6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -1.5s);
+}
+
+.chip::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  vertical-align: middle;
+}
+
+.chip:nth-of-type(1) {
+  top: 6%;
+  left: 0;
+}
+
+.chip:nth-of-type(2) {
+  top: 22%;
+  right: 0;
+}
+
+.chip:nth-of-type(3) {
+  bottom: 18%;
+  left: 0;
+}
+
+.chip:nth-of-type(4) {
+  bottom: 4%;
+  right: 4%;
+}
+
+@keyframes bob {
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+/* ── Stats strip ────────────────────────────────────── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: var(--space-16);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-lg);
+  background: rgb(255 255 255 / 3%);
+  backdrop-filter: blur(12px);
+  animation: rise 1s 0.45s var(--ease-out) both;
+}
+
+.stats li {
+  padding: var(--space-6);
+  border-right: 1px solid var(--dark-border);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.stats li:nth-child(2n) {
+  border-right: 0;
+}
+
+.stats li:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .stats li {
+    border-bottom: 0;
+  }
+
+  .stats li:nth-child(2n) {
+    border-right: 1px solid var(--dark-border);
+  }
+
+  .stats li:last-child {
+    border-right: 0;
+  }
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.statLabel {
+  margin-top: var(--space-2);
+  font-size: 0.9rem;
+  color: var(--dark-muted);
+}
+
+/* Mouse-style scroll hint */
+.scrollCue {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-6);
+  display: none;
+  width: 24px;
+  height: 38px;
+  margin-left: -12px;
+  border: 2px solid rgb(255 255 255 / 30%);
+  border-radius: 14px;
+}
+
+.scrollCue span {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 4px;
+  height: 8px;
+  margin-left: -2px;
+  border-radius: 2px;
+  background: #fff;
+  animation: scroll 1.8s ease-in-out infinite;
+}
+
+@keyframes scroll {
+  60% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (min-width: 1024px) and (min-height: 820px) {
+  .scrollCue {
+    display: block;
+  }
+}

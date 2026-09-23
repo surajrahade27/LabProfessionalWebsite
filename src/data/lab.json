@@ -1,0 +1,254 @@
+{
+  "shortName": "PNRL",
+  "name": "Pharmaceutical Nanotechnology Research Laboratory",
+  "siteTitle": "PNRL | Dr. Neelesh Mehra Research Group",
+  "institute": "National Institute of Pharmaceutical Education and Research (NIPER), Hyderabad",
+  "instituteShort": "NIPER Hyderabad",
+  "department": "Department of Pharmaceutics",
+  "headline": {
+    "lead": "Engineering smart nanomedicines for",
+    "highlight": "bench-to-bedside impact"
+  },
+  "intro": "PNRL works at the interface of advanced material science, nanotechnology and biopharmaceutics — engineering translational nanomedicines that overcome biological barriers and the solubility, permeability and toxicity limits of challenging therapeutics.",
+
+  "about": [
+    "The Pharmaceutical Nanotechnology Research Laboratory (PNRL) at NIPER Hyderabad, directed by Dr. Neelesh Kumar Mehra, operates at the interface of advanced material science, nanotechnology, and biopharmaceutics. The laboratory focuses on engineering translational, smart nanomedicines to overcome biological barriers and solve critical solubility, permeability, and toxicity limitations of challenging therapeutics.",
+    "By integrating molecular biopharmaceutics, mechanistic pharmacokinetic/PBPK modeling, and targeted delivery strategies, the group develops innovative therapeutic platforms for oncology, resistant infections, ocular disorders, and chronic inflammatory diseases. PNRL bridges academic discoveries with bench-to-bedside translational drug delivery."
+  ],
+  "history": "Established within the Department of Pharmaceutics at NIPER Hyderabad under Dr. Neelesh Kumar Mehra, the laboratory emerged as a specialized center for targeted formulation science and molecular drug delivery. Over the years, the lab has trained numerous M.S. (Pharm.) and Ph.D. scholars, publishing extensively in premier international drug delivery journals and collaborating with national laboratories, biomedical institutes, and pharmaceutical R&D facilities.",
+  "historyHighlights": [
+    { "icon": "cap", "text": "Numerous M.S. (Pharm.) and Ph.D. scholars trained" },
+    { "icon": "book", "text": "Extensive publications in premier drug delivery journals" },
+    { "icon": "link", "text": "Collaborations with national labs, biomedical institutes and pharma R&D" }
+  ],
+
+  "vision": "To become an internationally recognized center of excellence in pharmaceutical nanotechnology and targeted drug delivery, creating breakthrough nanomedicines that address unmet clinical needs.",
+  "mission": [
+    {
+      "title": "Engineer",
+      "text": "Engineer biocompatible, smart nanoplatforms for targeted therapeutic delivery with minimal systemic toxicity."
+    },
+    {
+      "title": "Train",
+      "text": "Foster rigorous interdisciplinary training for postgraduate and doctoral scholars in advanced drug delivery science, regulatory expectations, and pre-clinical formulation development."
+    },
+    {
+      "title": "Translate",
+      "text": "Bridge bench research and translational clinical technologies through industry-academia linkages and inter-institutional collaborations."
+    }
+  ],
+  "objectives": [
+    "Design and surface-engineer polymeric, lipid, and hybrid nano-architectures for targeted chemotherapy and immunotherapy.",
+    "Solve poor aqueous solubility and bioavailability of BCS Class II/IV compounds via co-amorphous systems, nanocrystals, and solid lipid dispersions.",
+    "Investigate cellular uptake, pharmacokinetic behavior, tissue distribution, and PBPK modeling of novel formulation systems.",
+    "Develop non-invasive delivery modalities (topical, mucosal, ocular, and oral) for complex synthetic and biological molecules."
+  ],
+
+  "research": [
+    {
+      "glyph": "nanotube",
+      "title": "Functionalized carbon nanotubes",
+      "text": "Surface-functionalized nanotubes as high-payload carriers for site-specific delivery."
+    },
+    {
+      "glyph": "dendrimer",
+      "title": "Surface-tailored dendrimers",
+      "text": "Branched, surface-engineered macromolecules and dendrimer conjugates for targeted therapy."
+    },
+    {
+      "glyph": "hybrid",
+      "title": "Polymeric / lipid hybrid nanoparticles",
+      "text": "PLGA, lipid and lipid–polymer hybrid nano-architectures for targeted chemo- and immunotherapy."
+    },
+    {
+      "glyph": "vesicle",
+      "title": "Transferosomes & vesicles",
+      "text": "Deformable vesicles and liposomes for topical, mucosal and ocular delivery."
+    },
+    {
+      "glyph": "crystal",
+      "title": "Solid dispersions & nanocrystals",
+      "text": "Crystalline and co-amorphous systems that lift the solubility and bioavailability of BCS Class II/IV drugs."
+    },
+    {
+      "glyph": "curve",
+      "title": "PK & PBPK modeling",
+      "text": "Mechanistic pharmacokinetics, tissue distribution and PBPK modeling of novel formulations."
+    }
+  ],
+  "therapeuticAreas": ["Oncology", "Resistant infections", "Ocular disorders", "Chronic inflammatory diseases"],
+  "deliveryRoutes": ["Topical", "Mucosal", "Ocular", "Oral"],
+  "keywords": [
+    "Carbon nanotubes",
+    "Dendrimers",
+    "PLGA nanoparticles",
+    "Transferosomes",
+    "Liposomes",
+    "Solid dispersions",
+    "Nanocrystals",
+    "Co-amorphous systems",
+    "Bioconjugate chemistry",
+    "PBPK modeling",
+    "Targeted delivery",
+    "Biopharmaceutics"
+  ],
+
+  "pi": {
+    "name": "Dr. Neelesh Kumar Mehra",
+    "initials": "NM",
+    "credentials": "Ph.D., PostDoc (USA)",
+    "role": "Associate Professor, Department of Pharmaceutics",
+    "expertise": ["Nanomedicine", "Targeted Drug Delivery", "Dendrimers", "Carbon Nanotubes", "Surface Modification"],
+    "recognition": "Recognized in global scientist rankings, including the Stanford University / Elsevier Top 2% Scientists list in Pharmacy & Pharmacology."
+  },
+  "teamGroups": [
+    { "icon": "flask", "title": "Doctoral Scholars", "text": "Ph.D. Research Fellows" },
+    { "icon": "book", "title": "Master's Thesis Researchers", "text": "M.S. (Pharm.) Students" },
+    { "icon": "compass", "title": "Project Interns", "text": "Project Interns & Visiting Scholars" },
+    { "icon": "cap", "title": "Alumni", "text": "Graduates of the lab" }
+  ],
+
+  "labSections": [
+    "Nanoparticle Synthesis & Nano-Engineering Core",
+    "Solid-State Characterization & Solubility Enhancement Section",
+    "Cell Culture & In Vitro Bio-Assay Facility",
+    "High-Performance Analytical & Chromatography Laboratory",
+    "In Vivo Pharmacokinetics & Preclinical Evaluation Wing"
+  ],
+  "equipment": [
+    {
+      "short": "HPLC",
+      "name": "High-Performance Liquid Chromatography (HPLC)",
+      "use": "Quantitative assay, stability analysis, and pharmacokinetic drug estimation.",
+      "tags": ["Assay", "Stability", "PK"]
+    },
+    {
+      "short": "DLS & Zeta",
+      "name": "Dynamic Light Scattering (DLS) & Zeta Potential Analyzer",
+      "use": "Measurement of sub-micron hydrodynamic particle size, polydispersity index (PDI), and surface electrical charge.",
+      "tags": ["Particle size", "PDI", "Surface charge"]
+    },
+    {
+      "short": "Rotavap & Lyophilizer",
+      "name": "Rotary Evaporator & Lyophilizer (Freeze Dryer)",
+      "use": "Solvent evaporation, dry powder formulation development, and moisture-controlled cake formation.",
+      "tags": ["Solvent removal", "Dry powders", "Freeze drying"]
+    },
+    {
+      "short": "Sonicators",
+      "name": "Probe & Bath Sonicators",
+      "use": "High-energy cavitation equipment for particle size reduction and homogeneous emulsion shearing.",
+      "tags": ["Size reduction", "Emulsions"]
+    },
+    {
+      "short": "Dissolution & Franz",
+      "name": "Dissolution & Franz Diffusion Test Systems",
+      "use": "In vitro drug release kinetics and transdermal/mucosal permeation profiling.",
+      "tags": ["Release kinetics", "Permeation"]
+    },
+    {
+      "short": "UV-Vis",
+      "name": "UV-Visible Spectrophotometer",
+      "use": "Preliminary active pharmaceutical ingredient (API) quantification and solubilization profiling.",
+      "tags": ["API quantification", "Solubility"]
+    }
+  ],
+  "activities": [
+    {
+      "title": "Fabricate",
+      "text": "Nano-carriers: liposomes, PLGA polymeric nanoparticles, transferosomes, dendrimer conjugates and lipid–polymer hybrids."
+    },
+    {
+      "title": "Formulate",
+      "text": "Solid dispersions, amorphous co-crystals and nano-suspensions."
+    },
+    {
+      "title": "Target",
+      "text": "Surface-ligand conjugation and bioconjugate chemistry for site-specific targeting."
+    },
+    {
+      "title": "Evaluate",
+      "text": "Cytotoxicity assays, cellular uptake kinetics, flow cytometric analysis and intracellular ROS profiling."
+    },
+    {
+      "title": "Quantify",
+      "text": "Bioanalytical method validation (HPLC/LC-MS) and pharmacokinetic blood/tissue sampling analysis."
+    }
+  ],
+
+  "stats": [
+    { "value": "5", "label": "Specialised lab sections" },
+    { "value": "6", "label": "Core instrument platforms" },
+    { "value": "4", "label": "Therapeutic focus areas" },
+    { "value": "3", "label": "National funding agencies" }
+  ],
+  "accreditations": [
+    {
+      "title": "Institute of National Importance",
+      "text": "Under the Department of Pharmaceuticals, Ministry of Chemicals and Fertilizers, Government of India."
+    },
+    {
+      "title": "Top-ranked under NIRF",
+      "text": "Consistently top-ranked among pharmacy institutions in India (National Institutional Ranking Framework, Ministry of Education)."
+    },
+    {
+      "title": "Ethics & biosafety compliant",
+      "text": "Research complies with CPCSEA guidelines for animal ethics and DBT-IBSC biosafety protocols."
+    }
+  ],
+  "achievements": [
+    {
+      "icon": "book",
+      "title": "High-impact publications",
+      "text": "Across top international journals in drug delivery and biomaterials."
+    },
+    {
+      "icon": "award",
+      "title": "National research funding",
+      "text": "Grants received from national funding agencies."
+    },
+    {
+      "icon": "cap",
+      "title": "Scholar awards",
+      "text": "Multiple Ph.D. and Master's thesis presentation awards at national and international pharmaceutical symposiums."
+    },
+    {
+      "icon": "star",
+      "title": "Top 2% Scientists",
+      "text": "PI listed in the Stanford University / Elsevier Top 2% Scientists ranking in Pharmacy & Pharmacology."
+    }
+  ],
+  "journals": [
+    "Biomaterials",
+    "European Journal of Pharmaceutics and Biopharmaceutics",
+    "Journal of Drug Targeting",
+    "AAPS PharmSciTech"
+  ],
+  "funders": ["DST-SERB", "ICMR", "DRDO"],
+
+  "contact": {
+    "address": [
+      "Department of Pharmaceutics",
+      "National Institute of Pharmaceutical Education and Research (NIPER), Hyderabad",
+      "Balanagar, Hyderabad, Telangana — 500037, India"
+    ],
+    "mapUrl": "https://maps.app.goo.gl/XB8vsyqkyYPdu4BF8",
+    "mapEmbedQuery": "NIPER Hyderabad, Balanagar, Hyderabad, Telangana 500037",
+    "phones": [
+      { "label": "Office", "display": "+91-40-23074750 (Extn. 2028)", "tel": "+914023074750,2028" },
+      { "label": "Mobile", "display": "+91-883-9030437", "tel": "+918839030437" }
+    ],
+    "email": "neelesh@niperhyd.ac.in",
+    "hours": [
+      { "days": "Monday – Friday", "time": "09:00 AM – 06:00 PM" },
+      { "days": "Saturday & Sunday", "time": "Closed (office)" }
+    ],
+    "hoursNote": "Research facilities run on extended, continuous project cycles for research scholars."
+  },
+  "links": [
+    { "label": "Google Scholar", "icon": "scholar", "url": "https://scholar.google.com/citations?hl=en&user=yhHqnugAAAAJ" },
+    { "label": "ResearchGate", "icon": "rg", "url": "https://researchgate.net/profile/Neelesh-Mehra" },
+    { "label": "NIPER Hyderabad", "icon": "globe", "url": "https://www.niperhyd.ac.in/" },
+    { "label": "LinkedIn", "icon": "linkedin", "url": "https://linkedin.com/school/niper-hyderabad" }
+  ]
+}

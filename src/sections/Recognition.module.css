@@ -1,0 +1,154 @@
+.head {
+  margin-bottom: var(--space-12);
+}
+
+.layout {
+  display: grid;
+  gap: var(--space-12);
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+.subhead {
+  margin-bottom: var(--space-6);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted) !important;
+}
+
+/* ── Accreditations ────────────────────────────────── */
+.accreditations {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.accreditations li {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid transparent;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    var(--gradient-ink) border-box;
+}
+
+.shield {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgb(22 163 74 / 10%);
+  color: #15803d;
+}
+
+.accreditations h4,
+.achievement h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-ink);
+}
+
+.accreditations p,
+.achievement p {
+  margin-top: var(--space-1);
+  font-size: 0.93rem;
+  color: var(--color-muted);
+}
+
+/* ── Achievements grid ─────────────────────────────── */
+.achievements {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .achievements {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.achievements > li {
+  display: flex;
+}
+
+.achievement {
+  flex: 1;
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  box-shadow: var(--shadow);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.3s;
+}
+
+@media (hover: hover) {
+  .achievement:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+}
+
+.achIcon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: var(--space-4);
+  border-radius: 14px;
+  background: var(--color-ink);
+  color: var(--color-cyan);
+}
+
+.funders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.funders li {
+  padding: 2px 10px;
+  border-radius: 6px;
+  background: var(--color-primary-soft);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* ── Journals strip ────────────────────────────────── */
+.journals {
+  margin-top: var(--space-16);
+}
+
+.journalsLabel {
+  margin-bottom: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+/* Two classes so this beats the marquee's own background */
+.journals .journalMarquee {
+  background: transparent;
+}
+
+.journalMarquee ul li {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-muted);
+}
