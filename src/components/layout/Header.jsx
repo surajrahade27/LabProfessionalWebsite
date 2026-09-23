@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import site from '../../data/site.json'
+import { useActiveSection } from '../../hooks/useActiveSection'
 import { phoneLink, whatsappLink } from '../../utils/links'
 import Icon from '../common/Icon'
 import styles from './Header.module.css'
@@ -12,8 +13,19 @@ const NAV = [
   { href: '#contact', label: 'Contact' },
 ]
 
+const SECTION_IDS = NAV.map((item) => item.href.slice(1))
+
 function Header() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const active = useActiveSection(SECTION_IDS)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   // Close the mobile menu with the Escape key
   useEffect(() => {
@@ -24,7 +36,8 @@ function Header() {
   }, [open])
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+      <span className={styles.progress} aria-hidden="true" />
       <div className={`container ${styles.inner}`}>
         <a href="#top" className={styles.logo}>
           <span className={styles.logoMark}>
@@ -41,7 +54,12 @@ function Header() {
           <ul className={styles.links}>
             {NAV.map((item) => (
               <li key={item.href}>
-                <a href={item.href} onClick={() => setOpen(false)}>
+                <a
+                  href={item.href}
+                  className={active === item.href.slice(1) ? styles.active : undefined}
+                  aria-current={active === item.href.slice(1) ? 'location' : undefined}
+                  onClick={() => setOpen(false)}
+                >
                   {item.label}
                 </a>
               </li>

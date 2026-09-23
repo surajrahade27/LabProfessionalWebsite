@@ -1,16 +1,50 @@
 .card {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   padding: var(--space-6);
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  transition: box-shadow 0.2s, border-color 0.2s;
+  border-radius: var(--radius-lg);
+  transition:
+    box-shadow 0.3s,
+    border-color 0.3s,
+    transform 0.4s var(--ease-out);
+  /* Plays whenever the card mounts, e.g. after changing the filter */
+  animation: pop-in 0.5s var(--ease-out) both;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+/* Spotlight that follows the pointer */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(11 110 153 / 9%),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
 }
 
 .card:hover {
   border-color: #b9d6e3;
-  box-shadow: var(--shadow);
+  box-shadow: 0 20px 40px -22px rgb(11 110 153 / 40%);
+  transform: translateY(-4px);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .category {
@@ -56,8 +90,10 @@
 }
 
 .price {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-ink);
 }
 
 .book {
@@ -71,9 +107,22 @@
   color: var(--color-primary-dark);
   font-weight: 600;
   text-decoration: none;
+  transition:
+    background 0.25s,
+    color 0.25s,
+    box-shadow 0.25s;
+}
+
+.book svg {
+  transition: transform 0.3s var(--ease-out);
 }
 
 .book:hover {
-  background: var(--color-primary);
+  background: var(--gradient-brand);
   color: #fff;
+  box-shadow: var(--shadow-glow);
+}
+
+.book:hover svg {
+  transform: translateX(3px);
 }

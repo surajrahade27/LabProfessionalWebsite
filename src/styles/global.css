@@ -27,8 +27,19 @@ svg {
   max-width: 100%;
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+}
+
 a {
   color: inherit;
+}
+
+::selection {
+  background: rgb(20 184 166 / 25%);
 }
 
 ul {
@@ -83,11 +94,23 @@ ul {
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.3s, transform 0.3s var(--ease-out);
 }
 
 .btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn:hover svg:last-child:not(:first-child) {
+  transform: translateX(3px);
+}
+
+.btn svg {
+  transition: transform 0.3s var(--ease-out);
 }
 
 .btn svg {
@@ -97,12 +120,30 @@ ul {
 }
 
 .btn-primary {
+  position: relative;
+  overflow: hidden;
   background: var(--color-accent);
   color: #fff;
+  box-shadow: 0 8px 20px -8px rgb(21 128 61 / 60%);
+}
+
+/* Light sweep across the button on hover */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 30%) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.7s var(--ease-out);
 }
 
 .btn-primary:hover {
   background: var(--color-accent-dark);
+  box-shadow: 0 14px 28px -10px rgb(21 128 61 / 70%);
+}
+
+.btn-primary:hover::after {
+  transform: translateX(100%);
 }
 
 .btn-outline {
@@ -115,12 +156,60 @@ ul {
   background: var(--color-primary-soft);
 }
 
+/* Gradient text for highlighted words */
+.gradient-text {
+  background: var(--gradient-brand);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 6s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-shift {
+  to {
+    background-position: 100% center;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Scroll-in animation, driven by <Reveal> */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
-  * {
+  *,
+  *::before,
+  *::after {
     transition: none !important;
+    animation: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

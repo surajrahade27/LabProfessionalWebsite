@@ -1,10 +1,14 @@
+import { useState } from 'react'
+import CountUp from '../components/common/CountUp'
 import Icon from '../components/common/Icon'
+import Reveal from '../components/common/Reveal'
 import packages from '../data/packages.json'
 import site from '../data/site.json'
 import tests from '../data/tests.json'
 import PackageCard from '../features/packages/PackageCard'
 import TestCard from '../features/tests/TestCard'
 import { phoneLink, whatsappLink } from '../utils/links'
+import { resetPointer, trackPointer } from '../utils/pointer'
 import styles from './HomePage.module.css'
 
 const FEATURES = [
@@ -48,21 +52,43 @@ const STEPS = [
   },
 ]
 
+const REPORT_ROWS = [
+  ['Haemoglobin', 82],
+  ['Blood sugar (HbA1c)', 64],
+  ['Cholesterol', 71],
+  ['Thyroid (TSH)', 58],
+]
+
 const popularTests = tests.filter((t) => t.popular)
+const categories = ['All', ...new Set(popularTests.map((t) => t.category))]
+
+// Last sentence of the tagline gets the gradient highlight
+const taglineParts = site.tagline.match(/[^.]+\.?/g) ?? [site.tagline]
+const taglineLead = taglineParts.slice(0, -1).join('')
+const taglineHighlight = taglineParts.at(-1).trim()
 
 function HomePage() {
+  const [category, setCategory] = useState('All')
+  const visibleTests =
+    category === 'All' ? popularTests : popularTests.filter((t) => t.category === category)
+
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className={styles.hero} aria-labelledby="hero-title">
+        <div className={styles.heroBg} aria-hidden="true">
+          <span className={`${styles.blob} ${styles.blobA}`} />
+          <span className={`${styles.blob} ${styles.blobB}`} />
+          <span className={`${styles.blob} ${styles.blobC}`} />
+        </div>
         <div className={`container ${styles.heroGrid}`}>
-          <div>
+          <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>
-              <Icon name="shield" size={16} />
+              <span className={styles.liveDot} />
               {site.accreditations.join(' · ')} accredited lab
             </p>
             <h1 id="hero-title" className={styles.heroTitle}>
-              {site.tagline}
+              {taglineLead} <span className="gradient-text">{taglineHighlight}</span>
             </h1>
             <p className={styles.heroText}>{site.intro}</p>
             <div className={styles.heroActions}>
@@ -74,6 +100,7 @@ function HomePage() {
               >
                 <Icon name="home" />
                 Book home collection
+                <Icon name="arrow" size={18} />
               </a>
               <a href={phoneLink} className="btn btn-outline">
                 <Icon name="phone" />
@@ -91,7 +118,12 @@ function HomePage() {
           </div>
 
           {/* Decorative sample report card */}
-          <div className={styles.heroVisual} aria-hidden="true">
+          <div
+            className={styles.heroVisual}
+            aria-hidden="true"
+            onPointerMove={trackPointer}
+            onPointerLeave={resetPointer}
+          >
             <div className={styles.reportCard}>
               <div className={styles.reportHead}>
                 <span className={styles.reportIcon}>
@@ -102,16 +134,11 @@ function HomePage() {
                   <p className={styles.reportSub}>Report ready · Today, 6:30 PM</p>
                 </div>
               </div>
-              {[
-                ['Haemoglobin', 82],
-                ['Blood sugar (HbA1c)', 64],
-                ['Cholesterol', 71],
-                ['Thyroid (TSH)', 58],
-              ].map(([label, value]) => (
+              {REPORT_ROWS.map(([label, value], i) => (
                 <div key={label} className={styles.reportRow}>
                   <span>{label}</span>
                   <span className={styles.bar}>
-                    <span style={{ width: `${value}%` }} />
+                    <span style={{ width: `${value}%`, animationDelay: `${600 + i * 150}ms` }} />
                   </span>
                   <span className={styles.normal}>Normal</span>
                 </div>
@@ -120,6 +147,12 @@ function HomePage() {
             <div className={styles.floatBadge}>
               <Icon name="home" size={20} />
               Sample collected at home
+            </div>
+            <div className={styles.floatChip}>
+              <span className={styles.chipIcon}>
+                <Icon name="chat" size={16} />
+              </span>
+              Sent on WhatsApp
             </div>
           </div>
         </div>
@@ -130,7 +163,9 @@ function HomePage() {
         <ul className={`container ${styles.statsGrid}`}>
           {site.stats.map((s) => (
             <li key={s.label}>
-              <p className={styles.statValue}>{s.value}</p>
+              <p className={styles.statValue}>
+                <CountUp value={s.value} />
+              </p>
               <p className={styles.statLabel}>{s.label}</p>
             </li>
           ))}
@@ -140,19 +175,25 @@ function HomePage() {
       {/* ── Why us ───────────────────────────────────────────── */}
       <section id="why-us" className={styles.section} aria-labelledby="why-title">
         <div className="container">
-          <header className={styles.sectionHead}>
+          <Reveal as="header" className={styles.sectionHead}>
             <p className={styles.kicker}>Why choose us</p>
             <h2 id="why-title">Care you can trust, results you can rely on</h2>
-          </header>
+          </Reveal>
           <ul className={styles.features}>
-            {FEATURES.map((f) => (
-              <li key={f.title} className={styles.feature}>
+            {FEATURES.map((f, i) => (
+              <Reveal
+                as="li"
+                key={f.title}
+                delay={i * 90}
+                className={styles.feature}
+                onPointerMove={trackPointer}
+              >
                 <span className={styles.featureIcon}>
                   <Icon name={f.icon} />
                 </span>
                 <h3>{f.title}</h3>
                 <p>{f.text}</p>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>
@@ -165,29 +206,44 @@ function HomePage() {
         aria-labelledby="tests-title"
       >
         <div className="container">
-          <header className={styles.sectionHead}>
+          <Reveal as="header" className={styles.sectionHead}>
             <p className={styles.kicker}>Popular tests</p>
             <h2 id="tests-title">Most booked tests</h2>
             <p>Prices include home sample collection. Can’t find your test? Just ask us.</p>
-          </header>
-          <div className={styles.testGrid}>
-            {popularTests.map((t) => (
-              <TestCard key={t.slug} test={t} />
+          </Reveal>
+          <Reveal className={styles.filters} role="group" aria-label="Filter tests by category">
+            {categories.map((c) => (
+              <button
+                key={c}
+                type="button"
+                className={styles.chip}
+                aria-pressed={category === c}
+                onClick={() => setCategory(c)}
+              >
+                {c}
+              </button>
             ))}
-          </div>
+          </Reveal>
+          <Reveal className={styles.testGrid} aria-live="polite">
+            {visibleTests.map((t, i) => (
+              <TestCard key={`${category}-${t.slug}`} test={t} index={i} />
+            ))}
+          </Reveal>
         </div>
       </section>
 
       {/* ── Packages ─────────────────────────────────────────── */}
       <section id="packages" className={styles.section} aria-labelledby="packages-title">
         <div className="container">
-          <header className={styles.sectionHead}>
+          <Reveal as="header" className={styles.sectionHead}>
             <p className={styles.kicker}>Health packages</p>
             <h2 id="packages-title">Complete checkups at a better price</h2>
-          </header>
+          </Reveal>
           <div className={styles.packageGrid}>
-            {packages.map((p) => (
-              <PackageCard key={p.slug} pkg={p} />
+            {packages.map((p, i) => (
+              <Reveal key={p.slug} delay={i * 120} className={styles.packageItem}>
+                <PackageCard pkg={p} />
+              </Reveal>
             ))}
           </div>
         </div>
@@ -196,20 +252,20 @@ function HomePage() {
       {/* ── How it works ─────────────────────────────────────── */}
       <section className={`${styles.section} ${styles.surface}`} aria-labelledby="steps-title">
         <div className="container">
-          <header className={styles.sectionHead}>
+          <Reveal as="header" className={styles.sectionHead}>
             <p className={styles.kicker}>How it works</p>
             <h2 id="steps-title">Your report in three simple steps</h2>
-          </header>
+          </Reveal>
           <ol className={styles.steps}>
             {STEPS.map((s, i) => (
-              <li key={s.title} className={styles.step}>
+              <Reveal as="li" key={s.title} delay={i * 150} className={styles.step}>
                 <span className={styles.stepNumber}>{i + 1}</span>
                 <span className={styles.featureIcon}>
                   <Icon name={s.icon} />
                 </span>
                 <h3>{s.title}</h3>
                 <p>{s.text}</p>
-              </li>
+              </Reveal>
             ))}
           </ol>
         </div>
@@ -218,7 +274,8 @@ function HomePage() {
       {/* ── Contact CTA ──────────────────────────────────────── */}
       <section id="contact" className={styles.section} aria-labelledby="contact-title">
         <div className="container">
-          <div className={styles.cta}>
+          <Reveal className={styles.cta}>
+            <span className={styles.ctaGlow} aria-hidden="true" />
             <div>
               <h2 id="contact-title">Book your test today</h2>
               <p>
@@ -268,7 +325,7 @@ function HomePage() {
                 <a href={`mailto:${site.email}`}>{site.email}</a>
               </li>
             </ul>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>

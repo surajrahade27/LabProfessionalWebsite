@@ -1,11 +1,16 @@
 import Icon from '../../components/common/Icon'
 import { formatPrice } from '../../utils/formatPrice'
 import { whatsappLink } from '../../utils/links'
+import { trackPointer } from '../../utils/pointer'
 import styles from './TestCard.module.css'
 
-function TestCard({ test }) {
+function TestCard({ test, index = 0 }) {
   return (
-    <article className={styles.card}>
+    <article
+      className={styles.card}
+      style={{ animationDelay: `${index * 60}ms` }}
+      onPointerMove={trackPointer}
+    >
       <p className={styles.category}>{test.category}</p>
       <h3 className={styles.name}>{test.name}</h3>
 
