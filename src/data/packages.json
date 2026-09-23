@@ -1,0 +1,5 @@
+[
+  { "slug": "basic-checkup", "name": "Basic Health Checkup", "price": 1499, "offerPrice": 999, "testSlugs": ["cbc", "hba1c", "urine-routine", "kft"], "highlight": false },
+  { "slug": "full-body-checkup", "name": "Full Body Checkup", "price": 2999, "offerPrice": 1999, "testSlugs": ["cbc", "lft", "kft", "lipid-profile", "thyroid-profile", "hba1c"], "highlight": true },
+  { "slug": "senior-citizen", "name": "Senior Citizen Care", "price": 3999, "offerPrice": 2799, "testSlugs": ["cbc", "lft", "kft", "lipid-profile", "thyroid-profile", "vitamin-d"], "highlight": false }
+]

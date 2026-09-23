@@ -1,0 +1,22 @@
+{
+  "name": "Lab Professionals",
+  "tagline": "Accurate reports. On time. Every time.",
+  "intro": "Trusted pathology and diagnostic tests with free home sample collection, reports on WhatsApp and doctors who explain your results.",
+  "phone": "+919000000000",
+  "phoneDisplay": "+91 90000 00000",
+  "whatsapp": "919000000000",
+  "email": "info@example.com",
+  "address": "Shop 1, Sample Building, Main Road, Pune 411001",
+  "mapUrl": "https://maps.google.com/?q=Pune",
+  "hours": [
+    { "days": "Mon – Sat", "time": "7:00 AM – 9:00 PM" },
+    { "days": "Sunday", "time": "7:00 AM – 1:00 PM" }
+  ],
+  "stats": [
+    { "label": "Tests done", "value": "50,000+" },
+    { "label": "Happy patients", "value": "20,000+" },
+    { "label": "Years of experience", "value": "15+" },
+    { "label": "Reports on time", "value": "99%" }
+  ],
+  "accreditations": ["NABL", "ISO 15189"]
+}

@@ -1,0 +1,10 @@
+[
+  { "slug": "cbc", "name": "Complete Blood Count (CBC)", "category": "Hematology", "price": 350, "sampleType": "Blood", "reportTime": "Same day", "preparation": "No fasting required", "popular": true },
+  { "slug": "thyroid-profile", "name": "Thyroid Profile (T3, T4, TSH)", "category": "Hormones", "price": 550, "sampleType": "Blood", "reportTime": "Same day", "preparation": "No fasting required", "popular": true },
+  { "slug": "hba1c", "name": "HbA1c (3-month Sugar)", "category": "Biochemistry", "price": 450, "sampleType": "Blood", "reportTime": "Same day", "preparation": "No fasting required", "popular": true },
+  { "slug": "lipid-profile", "name": "Lipid Profile", "category": "Biochemistry", "price": 600, "sampleType": "Blood", "reportTime": "Same day", "preparation": "10–12 hours fasting", "popular": true },
+  { "slug": "lft", "name": "Liver Function Test (LFT)", "category": "Biochemistry", "price": 700, "sampleType": "Blood", "reportTime": "Same day", "preparation": "No fasting required", "popular": true },
+  { "slug": "vitamin-d", "name": "Vitamin D (25-OH)", "category": "Vitamins", "price": 1200, "sampleType": "Blood", "reportTime": "Next day", "preparation": "No fasting required", "popular": true },
+  { "slug": "kft", "name": "Kidney Function Test (KFT)", "category": "Biochemistry", "price": 650, "sampleType": "Blood", "reportTime": "Same day", "preparation": "No fasting required", "popular": false },
+  { "slug": "urine-routine", "name": "Urine Routine", "category": "Clinical Pathology", "price": 200, "sampleType": "Urine", "reportTime": "Same day", "preparation": "First morning sample preferred", "popular": false }
+]
