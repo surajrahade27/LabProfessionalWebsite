@@ -17,7 +17,7 @@
   ],
   "history": "Established within the Department of Pharmaceutics at NIPER Hyderabad under Dr. Neelesh Kumar Mehra, the laboratory emerged as a specialized center for targeted formulation science and molecular drug delivery. Over the years, the lab has trained numerous M.S. (Pharm.) and Ph.D. scholars, publishing extensively in premier international drug delivery journals and collaborating with national laboratories, biomedical institutes, and pharmaceutical R&D facilities.",
   "historyHighlights": [
-    { "icon": "cap", "text": "Numerous M.S. (Pharm.) and Ph.D. scholars trained" },
+    { "icon": "cap", "text": "6 Ph.D. and 41 M.S. (Pharm.) scholars graduated" },
     { "icon": "book", "text": "Extensive publications in premier drug delivery journals" },
     { "icon": "link", "text": "Collaborations with national labs, biomedical institutes and pharma R&D" }
   ],
@@ -98,14 +98,113 @@
     "initials": "NM",
     "credentials": "Ph.D., PostDoc (USA)",
     "role": "Associate Professor, Department of Pharmaceutics",
+    "experience": "14 years of academic and industrial experience",
+    "lab": "Lab 90",
     "expertise": ["Nanomedicine", "Targeted Drug Delivery", "Dendrimers", "Carbon Nanotubes", "Surface Modification"],
-    "recognition": "Recognized in global scientist rankings, including the Stanford University / Elsevier Top 2% Scientists list in Pharmacy & Pharmacology."
+    "recognition": "Recognized in global scientist rankings, including the Stanford University / Elsevier Top 2% Scientists list in Pharmacy & Pharmacology.",
+    "metrics": [
+      { "value": "165", "label": "Publications", "note": "Average IF 5–6" },
+      { "value": "6,970", "label": "Citations" },
+      { "value": "49", "label": "h-index" },
+      { "value": "30", "label": "Invited talks" }
+    ],
+    "education": [
+      {
+        "degree": "Postdoc",
+        "discipline": "Pharmacy",
+        "institution": "Texas A&M Health Science Center, Texas, USA",
+        "year": "2016"
+      },
+      {
+        "degree": "Ph.D.",
+        "discipline": "Pharmaceutical Sciences",
+        "institution": "Department of Pharmaceutical Sciences, Dr. Hari Singh Gour Central University, Sagar",
+        "year": "2014"
+      },
+      {
+        "degree": "Master's",
+        "discipline": "Pharmaceutics",
+        "institution": "Dr. Hari Singh Gour Central University, Sagar",
+        "year": "2007"
+      }
+    ],
+    "researchAreas": [
+      "Targeted & novel drug delivery systems",
+      "Triple-negative breast cancer (TNBC)",
+      "Innovative ophthalmic formulation development",
+      "Liposomal formulations & nanoemulsions",
+      "Polymeric nanoparticles and cryogels / hydrogels"
+    ],
+    "awards": [
+      "ICMR Shakuntala Amir Chand Award",
+      "Young Scientist Award",
+      "Elected Fellow, Telangana Academy of Sciences",
+      "Travel awards and oral & poster presentation awards"
+    ],
+    "patents": [
+      { "value": "7", "label": "Granted" },
+      { "value": "2", "label": "Filed" },
+      { "value": "2", "label": "Published" },
+      { "value": "1", "label": "Technology transfer" }
+    ],
+    "grants": [
+      { "value": "7", "label": "Extramural research grants", "amount": "₹290 lakh" },
+      { "value": "2", "label": "Industry grants", "amount": "₹5 lakh" }
+    ],
+    "mentorship": [
+      { "level": "Ph.D.", "awarded": "6", "ongoing": "11" },
+      { "level": "Master's", "awarded": "41", "ongoing": "6" }
+    ],
+    "responsibilities": ["Capital and consumable procurement", "Institutional ranking framework (NIRF)", "IPR cell"]
   },
-  "teamGroups": [
-    { "icon": "flask", "title": "Doctoral Scholars", "text": "Ph.D. Research Fellows" },
-    { "icon": "book", "title": "Master's Thesis Researchers", "text": "M.S. (Pharm.) Students" },
-    { "icon": "compass", "title": "Project Interns", "text": "Project Interns & Visiting Scholars" },
-    { "icon": "cap", "title": "Alumni", "text": "Graduates of the lab" }
+  "team": [
+    {
+      "id": "doctoral",
+      "icon": "flask",
+      "title": "Doctoral Scholars",
+      "description": "Ph.D. research fellows and their disease focus.",
+      "members": [
+        { "name": "Mr. Ravindra Vasave", "photo": "ravindra-vasave", "position": "Senior Research Fellow", "focus": "Triple-negative breast cancer" },
+        { "name": "Mr. Rohit Bhawale", "photo": "rohit-bhawale", "position": "Senior Research Fellow", "focus": "Retinoblastoma & eye inflammation" },
+        { "name": "Mr. Omar Khan", "photo": "omar-khan", "position": "Senior Research Fellow", "focus": "Uveitis & ocular inflammation" },
+        { "name": "Mr. Sumedh Bahadure", "photo": "sumedh-bahadure", "position": "Senior Research Fellow", "focus": "Melanoma" },
+        { "name": "Ms. Usha Nalla", "photo": "usha-nalla", "position": "Senior Research Fellow", "focus": "Triple-negative breast cancer" },
+        { "name": "Mr. Sri Pada Datta", "photo": "sri-pada-datta", "position": "Senior Research Fellow", "focus": "Colon cancer" },
+        { "name": "Mr. Kshitiz Luthra", "photo": "kshitiz-luthra", "position": "Junior Research Fellow", "focus": "Triple-negative breast cancer" },
+        { "name": "Ms. Shrishti Mishra", "photo": "shrishti-mishra", "position": "Junior Research Fellow", "focus": "Hepatocellular carcinoma" },
+        { "name": "Ms. Reena Yadav", "photo": "reena-yadav", "position": "Junior Research Fellow", "focus": "Leukemia" }
+      ]
+    },
+    {
+      "id": "masters",
+      "icon": "book",
+      "title": "Master's Scholars",
+      "description": "Post-graduate researchers completing their M.S. (Pharm.) thesis in the lab.",
+      "members": [
+        { "name": "Ms. Apurva Mohite", "photo": "apurva-mohite", "position": "M.S. (Pharm.)" },
+        { "name": "Mr. Karan Gupta", "photo": "karan-gupta", "position": "M.S. (Pharm.)" },
+        { "name": "Ms. Janani K.", "photo": "janani-k", "position": "M.S. (Pharm.)" },
+        { "name": "Mr. Rathin Tendulkar", "photo": "rathin-tendulkar", "position": "M.S. (Pharm.)" },
+        { "name": "Ms. Vyshnavi N.", "photo": "vyshnavi-n", "position": "M.S. (Pharm.)" },
+        { "name": "Mr. Praneeth Byru", "photo": "praneeth-byru", "position": "M.S. (Pharm.)" }
+      ]
+    },
+    {
+      "id": "alumni",
+      "icon": "cap",
+      "title": "Alumni",
+      "description": "Wall of fame — distinguished doctoral alumni and where they are now.",
+      "members": [
+        { "name": "Dr. Valamla Bhavana", "photo": "valamla-bhavana", "position": "Research Scientist", "organization": "Enveda Biosciences, Hyderabad" },
+        { "name": "Dr. Sandeep Chary Padakanti", "photo": "sandeep-chary-padakanti", "position": "Postdoctoral Fellow", "organization": "Florida A&M University, USA" },
+        { "name": "Dr. Naveen Rajana", "photo": "naveen-rajana", "position": "Postdoctoral Fellow", "organization": "University of Texas, USA" },
+        { "name": "Dr. Vaibhavi Srivastava", "photo": "vaibhavi-srivastava", "position": "Assistant Professor", "organization": "GLA University, Mathura" },
+        { "name": "Dr. Anuradha Urati", "photo": "anuradha-urati", "position": "Associate Scientific Writer", "organization": "Indegene, Hyderabad" },
+        { "name": "Dr. Avinash Pawar", "photo": "avinash-pawar", "position": "Assistant Professor", "organization": "Parul University, Vadodara" },
+        { "name": "Dr. Ekta R. Pardhi", "photo": "ekta-pardhi", "position": "Associate Medical Writer", "organization": "Red Nucleus, Bangalore" },
+        { "name": "Dr. Rati Yadav", "photo": "rati-yadav", "position": "Application Scientist", "organization": "OzaBio, New Delhi" }
+      ]
+    }
   ],
 
   "labSections": [

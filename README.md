@@ -4,6 +4,8 @@ Website for the Pharmaceutical Nanotechnology Research Laboratory (PNRL), NIPER 
 
 All site content lives in [`src/data/lab.json`](src/data/lab.json) (source: [client profile](docs/functional-spec/client-profile-pnrl.md)). Edit that file to update text, team, equipment or contact details.
 
+To add a team member, save their photo as `src/assets/team/<slug>.jpg` (about 320px tall) and add an entry to the matching group in `team` with `"photo": "<slug>"`. Members without a photo show their initials.
+
 ## Getting started
 
 ```bash

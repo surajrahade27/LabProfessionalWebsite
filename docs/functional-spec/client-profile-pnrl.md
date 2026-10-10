@@ -51,17 +51,61 @@ To become an internationally recognized center of excellence in pharmaceutical n
 
 **Dr. Neelesh Kumar Mehra**, Ph.D., PostDoc (USA)
 Associate Professor, Department of Pharmaceutics
+14 years of academic/industrial experience · Lab 90
 
 Expertise: Nanomedicine, Targeted Drug Delivery, Dendrimers, Carbon Nanotubes, Surface Modification
+
+| Qualification | Discipline | Institution | Year |
+|---|---|---|---|
+| Postdoc | Pharmacy | Texas A&M Health Science Center, Texas, USA | 2016 |
+| Ph.D. | Pharmaceutical Sciences | Dept. of Pharmaceutical Sciences, Dr. Hari Singh Gour Central University, Sagar | 2014 |
+| Master's | Pharmaceutics | Dr. Hari Singh Gour Central University, Sagar | 2007 |
+
+- **Research output:** 165 publications (average IF 5–6), 6,970 citations, h-index 49, 30 invited talks
+- **Patents:** 7 granted, 2 filed, 2 published · 1 technology transfer
+- **Grants:** 7 extramural (₹290 lakh), 2 industry (₹5 lakh)
+- **Students:** Ph.D. 6 awarded / 11 ongoing · Master's 41 awarded / 6 ongoing
+- **Research areas:** Targeted & novel drug delivery systems; Triple-negative breast cancer (TNBC); Innovative ophthalmic formulation development; Liposomal formulations & nanoemulsions; Polymeric nanoparticles and cryogels/hydrogels
+- **Key awards:** ICMR Shakuntala Amir Chand Award; Young Scientist Award; Elected Fellow, Telangana Academy of Sciences; travel, oral & poster presentation awards
+- **Institutional responsibilities:** Capital and consumable procurement; Institutional ranking framework; IPR cell
 
 ### Research Team Structure
 
 - Alumni
 - Doctoral Scholars (Ph.D. Research Fellows)
 - Master's Thesis Researchers (M.S. Pharm. Students)
-- Project Interns / Visiting Scholars
+- Project Interns / Visiting Scholars (no members listed yet)
 
-Team member names and photos have not been provided yet.
+Source: `docs/FOR Web.pptx` (received 2026-10-10). Photos are cropped into `src/assets/team/`.
+
+**Doctoral Research Scholars**
+
+| Name | Position | Research focus |
+|---|---|---|
+| Mr. Ravindra Vasave | Senior Research Fellow | Triple-negative breast cancer |
+| Mr. Rohit Bhawale | Senior Research Fellow | Retinoblastoma & eye inflammation |
+| Mr. Omar Khan | Senior Research Fellow | Uveitis & ocular inflammation |
+| Mr. Sumedh Bahadure | Senior Research Fellow | Melanoma |
+| Ms. Usha Nalla | Senior Research Fellow | Triple-negative breast cancer |
+| Mr. Sri Pada Datta | Senior Research Fellow | Colon cancer |
+| Mr. Kshitiz Luthra | Junior Research Fellow | Triple-negative breast cancer |
+| Ms. Shrishti Mishra | Junior Research Fellow | Hepatocellular carcinoma |
+| Ms. Reena Yadav | Junior Research Fellow | Leukemia |
+
+**Master's Research Scholars (M.S. Pharm.):** Ms. Apurva Mohite, Mr. Karan Gupta, Ms. Janani K., Mr. Rathin Tendulkar, Ms. Vyshnavi N., Mr. Praneeth Byru
+
+**Distinguished Doctoral Alumni (Wall of Fame)**
+
+| Name | Current position |
+|---|---|
+| Dr. Valamla Bhavana | Research Scientist, Enveda Biosciences, Hyderabad |
+| Dr. Sandeep Chary Padakanti | Postdoctoral Fellow, Florida A&M University, USA |
+| Dr. Naveen Rajana | Postdoctoral Fellow, University of Texas, USA |
+| Dr. Vaibhavi Srivastava | Assistant Professor, GLA University, Mathura |
+| Dr. Anuradha Urati | Associate Scientific Writer, Indegene, Hyderabad |
+| Dr. Avinash Pawar | Assistant Professor, Parul University, Vadodara |
+| Dr. Ekta R. Pardhi | Associate Medical Writer, Red Nucleus, Bangalore |
+| Dr. Rati Yadav | Application Scientist, OzaBio, New Delhi |
 
 ## 5. Facilities & Activities
 
@@ -152,6 +196,6 @@ Team member names and photos have not been provided yet.
 
 - [ ] Lab logo (item 3 was blank)
 - [ ] Original laboratory and college photos (client will send separately)
-- [ ] PI photo and team member names/photos
+- [x] PI photo and team member names/photos
 - [ ] Item 19 is missing from the numbering — confirm nothing was left out
 - [ ] Which emails to show on the site: only the official NIPER one, or both
