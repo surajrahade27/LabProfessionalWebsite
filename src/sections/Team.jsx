@@ -160,7 +160,7 @@ function PiProfile({ pi }) {
   )
 }
 
-function MemberCard({ member }) {
+function MemberCard({ member, nameAs: Name }) {
   const photo = PHOTOS[member.photo]
 
   return (
@@ -179,7 +179,7 @@ function MemberCard({ member }) {
         </span>
       )}
       <div className={styles.memberBody}>
-        <h4>{member.name}</h4>
+        <Name className={styles.memberName}>{member.name}</Name>
         <p className={styles.position}>{member.position}</p>
         {member.organization && <p className={styles.organization}>{member.organization}</p>}
         {member.focus && (
@@ -193,65 +193,94 @@ function MemberCard({ member }) {
   )
 }
 
-// Doctoral scholars / master's scholars / alumni as an accessible tab set
+function MemberGrid({ members, nameAs = 'h4' }) {
+  return (
+    <ul className={styles.members}>
+      {members.map((m) => (
+        <MemberCard key={m.name} member={m} nameAs={nameAs} />
+      ))}
+    </ul>
+  )
+}
+
+const ALL = 'all'
+
+// All / doctoral scholars / master's scholars / alumni as an accessible tab set.
+// "All" lists every group under its own heading.
 function TeamTabs({ groups }) {
-  const [active, setActive] = useState(groups[0].id)
-  const tabs = useRef([])
+  const tabs = [
+    { id: ALL, icon: 'users', title: 'All', count: groups.reduce((n, g) => n + g.members.length, 0) },
+    ...groups.map((g) => ({ ...g, count: g.members.length })),
+  ]
+  const [active, setActive] = useState(ALL)
+  const tabRefs = useRef([])
 
   const onKeyDown = (e, i) => {
     const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key]
     let next
-    if (step) next = (i + step + groups.length) % groups.length
+    if (step) next = (i + step + tabs.length) % tabs.length
     else if (e.key === 'Home') next = 0
-    else if (e.key === 'End') next = groups.length - 1
+    else if (e.key === 'End') next = tabs.length - 1
     else return
     e.preventDefault()
-    setActive(groups[next].id)
-    tabs.current[next].focus()
+    setActive(tabs[next].id)
+    tabRefs.current[next].focus()
   }
 
   return (
     <>
       <div className={styles.tabs} role="tablist" aria-label="Research team">
-        {groups.map((g, i) => {
-          const selected = g.id === active
+        {tabs.map((t, i) => {
+          const selected = t.id === active
           return (
             <button
-              key={g.id}
-              ref={(el) => (tabs.current[i] = el)}
+              key={t.id}
+              ref={(el) => (tabRefs.current[i] = el)}
               type="button"
               role="tab"
-              id={`team-tab-${g.id}`}
-              aria-controls={`team-panel-${g.id}`}
+              id={`team-tab-${t.id}`}
+              aria-controls={`team-panel-${t.id}`}
               aria-selected={selected}
               tabIndex={selected ? 0 : -1}
               className={styles.tab}
-              onClick={() => setActive(g.id)}
+              onClick={() => setActive(t.id)}
               onKeyDown={(e) => onKeyDown(e, i)}
             >
-              <Icon name={g.icon} size={18} />
-              {g.title}
-              <span className={styles.count}>{g.members.length}</span>
+              <Icon name={t.icon} size={18} />
+              {t.title}
+              <span className={styles.count}>{t.count}</span>
             </button>
           )
         })}
       </div>
 
-      {groups.map((g) => (
+      {tabs.map((t) => (
         <div
-          key={g.id}
+          key={t.id}
           role="tabpanel"
-          id={`team-panel-${g.id}`}
-          aria-labelledby={`team-tab-${g.id}`}
+          id={`team-panel-${t.id}`}
+          aria-labelledby={`team-tab-${t.id}`}
           className={styles.panel}
-          hidden={g.id !== active}
+          hidden={t.id !== active}
         >
-          <p className={styles.panelLead}>{g.description}</p>
-          <ul className={styles.members}>
-            {g.members.map((m) => (
-              <MemberCard key={m.name} member={m} />
-            ))}
-          </ul>
+          {t.id === ALL ? (
+            groups.map((g) => (
+              <div key={g.id} className={styles.subgroup}>
+                <h4 className={styles.subgroupTitle}>
+                  <Icon name={g.icon} size={20} />
+                  {g.title}
+                  <span className={styles.count}>{g.members.length}</span>
+                </h4>
+                <p className={styles.panelLead}>{g.description}</p>
+                <MemberGrid members={g.members} nameAs="h5" />
+              </div>
+            ))
+          ) : (
+            <>
+              <p className={styles.panelLead}>{t.description}</p>
+              <MemberGrid members={t.members} />
+            </>
+          )}
         </div>
       ))}
     </>

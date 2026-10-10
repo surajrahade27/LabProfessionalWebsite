@@ -495,6 +495,25 @@
   }
 }
 
+/* Group headings inside the "All" panel */
+.subgroup + .subgroup {
+  margin-top: var(--space-12);
+}
+
+.subgroupTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-ink);
+}
+
+.subgroupTitle svg {
+  color: var(--color-primary);
+}
+
 .panelLead {
   margin-bottom: var(--space-4);
   font-size: 0.95rem;
@@ -562,7 +581,7 @@
   min-width: 0;
 }
 
-.memberBody h4 {
+.memberName {
   font-family: var(--font-display);
   font-size: 1.02rem;
   line-height: 1.3;

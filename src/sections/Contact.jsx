@@ -4,7 +4,8 @@ import lab from '../data/lab.json'
 import styles from './Contact.module.css'
 
 const { contact } = lab
-const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(contact.mapEmbedQuery)}&z=15&output=embed`
+// Served from www.google.com, the only frame origin the CSP in netlify.toml allows
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(contact.mapEmbedQuery)}&z=15&output=embed`
 
 function Contact() {
   return (
